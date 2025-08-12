@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe RL</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Tic Tac Toe - Play vs Sneh's AI</h1>
+    <div id="board"></div>
+    <p id="status"></p>
+    <button onclick="resetGame()">Restart</button>
+
+<script>
+let board = [" "," "," "," "," "," "," "," "," "];
+let gameOver = false;
+
+function renderBoard() {
+    let html = "";
+    board.forEach((cell, i) => {
+        html += `<div class="cell" onclick="playerMove(${i})">${cell}</div>`;
+    });
+    document.getElementById("board").innerHTML = html;
+}
+
+function playerMove(index) {
+    if (board[index] !== " " || gameOver) return;
+    board[index] = "X";
+    renderBoard();
+    checkStatus();
+
+    if (!gameOver) {
+        fetch("/move", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({board: board})
+        })
+        .then(res => res.json())
+        .then(data => {
+            board = data.board;
+            renderBoard();
+            if (data.winner) {
+                document.getElementById("status").innerText = data.winner === "Draw" ? "It's a Draw!" : `${data.winner} Wins!`;
+                gameOver = true;
+            }
+        });
+    }
+}
+
+function checkStatus() {
+    // Quick client check (optional, backend also checks)
+}
+
+function resetGame() {
+    board = [" "," "," "," "," "," "," "," "," "];
+    gameOver = false;
+    document.getElementById("status").innerText = "";
+    renderBoard();
+}
+
+renderBoard();
+</script>
+</body>
+</html>
