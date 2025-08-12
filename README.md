@@ -15,7 +15,7 @@ Live on -> https://tic-tac-toe-1-jyux.onrender.com/
 
 1. **Clone the repository**:
    ```bash
-   git clone <your-repo-url>
+   git clone (https://github.com/Shark-Bot-X/tic-tac-toe)
    cd tic-tac-toe-ai
    ```
 
