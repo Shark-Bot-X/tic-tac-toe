@@ -1,31 +1,8 @@
-# Tic Tac Toe vs AI
+# Tic Tac Toe vs Sneh's AI
 
 A web-based Tic Tac Toe game where you play against an AI powered by Q-Learning reinforcement learning.
 
-## 🚀 Quick Deploy to Render
-
-1. **Fork/Clone this repository** to your GitHub account
-
-2. **Create the Q-table** (run locally first):
-   ```bash
-   python create_basic_qtable.py
-   ```
-   This creates `qtable_O.pkl` file needed by the AI.
-
-3. **Commit and push** the qtable_O.pkl file to your repository:
-   ```bash
-   git add qtable_O.pkl
-   git commit -m "Add AI Q-table"
-   git push
-   ```
-
-4. **Deploy on Render**:
-   - Go to [Render.com](https://render.com) and create account
-   - Connect your GitHub account
-   - Create new "Web Service"
-   - Select this repository
-   - Render will automatically detect the `render.yaml` configuration
-   - Click "Deploy"
+Live on -> https://tic-tac-toe-1-jyux.onrender.com/
 
 ## 🎮 How to Play
 
@@ -33,20 +10,6 @@ A web-based Tic Tac Toe game where you play against an AI powered by Q-Learning 
 - Click any empty cell to make your move
 - Try to get three in a row (horizontally, vertically, or diagonally)
 - The AI will respond automatically after your move
-
-## 📁 Project Structure
-
-```
-tic-tac-toe-ai/
-├── app.py                 # Main Flask application
-├── requirements.txt       # Python dependencies
-├── render.yaml           # Render deployment config
-├── create_basic_qtable.py # Script to create AI Q-table
-├── qtable_O.pkl          # AI's trained Q-table (generated)
-├── templates/
-│   └── index.html        # Game interface
-└── README.md            # This file
-```
 
 ## 🛠️ Local Development
 
